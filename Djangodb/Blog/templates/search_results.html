@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SEARCH RESULTS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://img.icons8.com/clouds/100/000000/book-and-pencil.png">
+
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: black;
+            padding: 30px 0;
+        }
+        body {margin: 0; background-color: #FFFAF0;}
+
+        ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        }
+
+        ul.topnav li {float: left;}
+
+        ul.topnav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+        ul.topnav li a.active {background-color: #483D8B;}
+
+        ul.topnav li.right {float: right;}
+
+        @media screen and (max-width: 600px) {
+        ul.topnav li.right, 
+        ul.topnav li {float: none;}
+        }
+        /* ............................................................ */
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            /* border-collapse: collapse; */
+            width: 100%;
+
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #008B8B;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <ul class="topnav">
+        <li><a class="active" href="{% url 'first_page' %}">Home</a></li>
+        <li><a href="http://DjangoCRUDApp.pythonanywhere.com/booksandcourses/">Books and Courses</a></li>
+        <li><a href="http://DjangoCRUDApp.pythonanywhere.com/contact/">Contact</a></li>
+        <li class="right"><a href="http://www.aylinnaebzadeh.ir/" target="blanck">My personal website</a></li>
+      </ul>
+      
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <table id="customers">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Producer</th>
+                <th>Level</th>
+                <th>Type</th>
+                <th>Estimated Time To Complete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for j in object_list %}
+            <tr>
+                <td>{{j.title}}</td>
+                <td>{{j.producername}}</td>
+                <td>{{j.level}}</td>
+                <td>{{j.rec_type}}</td>
+                <td>{{j.estimatedtimetocomplete}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
